@@ -1,3 +1,4 @@
+import { Sequelize, Op } from "sequelize";
 import * as db from "../model/db.js";
 
 const User = db.default.user;
@@ -20,6 +21,23 @@ export const newUser = async (req, res, next) => {
 export const getUsers = async (req, res, next) => {
   try {
     const userDetails = await User.findAll({});
+    return res.status(200).json(userDetails ? userDetails : []);
+  } catch (error) {
+    next(error);
+  }
+};
+
+// find users that have appointments
+export const getUsersByAppointment = async (req, res, next) => {
+  try {
+    const userDetails = await User.findAll({
+      attributes: ["userid", "userAppointment", "userDoctor"],
+      where: {
+        userAppointment: {
+          [Op.not]: null,
+        },
+      },
+    });
     return res.status(200).json(userDetails ? userDetails : []);
   } catch (error) {
     next(error);
@@ -55,6 +73,7 @@ export const updateUserById = async (req, res, next) => {
         userPhone: req.body.userPhone,
         userEmail: req.body.userEmail,
         userMedHistory: req.body.userMedHistory,
+        userAppointment: req.body.userAppointment,
       },
       { where: { userid: id } }
     );

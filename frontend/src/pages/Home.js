@@ -21,6 +21,7 @@ const Home = () => {
     { field: "userPhone" },
     { field: "userEmail" },
     { field: "userMedHistory" },
+    { field: "userAppointment" },
   ]);
 
   // get all users' info when the page loads

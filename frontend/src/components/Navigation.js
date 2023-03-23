@@ -47,6 +47,12 @@ const Navigation = () => {
                 Create
               </a>
             </li>
+            <li className="nav-item">
+              {/* conditional href for authenticated and normal user */}
+              <a className="nav-link" href="/appointments">
+                Appointments
+              </a>
+            </li>
           </ul>
           <a className="nav-link active" aria-current="page" href="/login">
             {/* conditional button for authenticated and normal user */}

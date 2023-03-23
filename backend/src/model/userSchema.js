@@ -42,6 +42,14 @@ export default (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      userAppointment: {
+        type: DataTypes.DATE,
+        allowNull: true,
+      },
+      userDoctor: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
     {
       freezeTableName: true,

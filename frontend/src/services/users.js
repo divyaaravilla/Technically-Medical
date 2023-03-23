@@ -2,12 +2,19 @@ import axios from "axios";
 import { baseUrl } from "../url";
 
 const getUrl = baseUrl + "/api/users";
+const appointedUrl = baseUrl + "/api/appointments";
 const postUrl = baseUrl + "/api/create";
 const updateUrl = baseUrl + "/api/user/";
 
 // get all users info
 export const getUsers = async () => {
   const response = await axios.get(getUrl);
+  return response;
+};
+
+// get appointed users info
+export const getAppointment = async () => {
+  const response = await axios.get(appointedUrl);
   return response;
 };
 
