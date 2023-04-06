@@ -1,3 +1,13 @@
+a {
+  text-decoration: none;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .table {
   margin-left: auto;
   margin-right: auto;

@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { getUsers } from "../services/users";
 import Navigation from "../components/Navigation";
 
+import { Group } from "evergreen-ui";
+
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
 
@@ -71,6 +73,40 @@ const Home = () => {
             columnDefs={columnDefs}
           />
         </div>
+        <br />
+        {user && (
+          <div className="buttons">
+            <a href="consultationBooking.html" target="_blank" rel="noreferrer">
+              <button type="button" class="btn btn-secondary">
+                Book Consultation
+              </button>
+            </a>
+            <a href="consultation.html" target="_blank" rel="noreferrer">
+              <button type="button" class="btn btn-primary">
+                Consultation
+              </button>
+            </a>
+            <a href="procedureBooking.html" target="_blank" rel="noreferrer">
+              <button type="button" class="btn btn-warning">
+                Book Procedure
+              </button>
+            </a>
+            <a href="procedure.html" target="_blank" rel="noreferrer">
+              <button type="button" class="btn btn-success">
+                Procedure
+              </button>
+            </a>
+            <a
+              href="procedureBookingwithID.html"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <button type="button" class="btn btn-info">
+                Book with ID
+              </button>
+            </a>
+          </div>
+        )}
       </div>
     </>
   );

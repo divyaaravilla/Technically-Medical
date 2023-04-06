@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patient Procedure Booking with ID</title>
+    <style>
+      form {
+        width: 500px;
+        margin: auto;
+        font-family: Arial, sans-serif;
+        background-color: #b8b9be;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      select {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #162c77;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      table {
+        margin-top: 30px;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      table th,
+      table td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      table th {
+        background-color: #3b5777;
+        color: white;
+      }
+      h1 {
+        text-align: center;
+        color: purple;
+      }
+      h2 {
+        text-align: center;
+        color: gold;
+      }
+      body {
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><b>TECHNICALLY MEDICAL</b></h1>
+    <h2>Procedure Booking with ID</h2>
+    <form>
+      <label for="pname">Patient's ID:</label>
+      <input type="text" id="pname" name="pname" required />
+
+      <label for="dname">Doctor's ID:</label>
+      <input type="text" id="dname" name="dname" required />
+
+      <label for="date">Procedure On:</label>
+      <input type="date" id="date" name="date" required />
+      <br />
+      <br />
+
+      <label for="feedback">Procedure Remarks:</label>
+      <textarea
+        id="feedback"
+        name="feedback"
+        rows="5"
+        cols="50"
+        required
+      ></textarea>
+
+      <br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <table id="data-table">
+      <thead>
+        <tr>
+          <th>Patient's ID</th>
+          <th>Doctor's ID</th>
+          <th>Procedure On</th>
+          <th>Procedure Remarks</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <script>
+      const form = document.querySelector("form");
+      const tbody = document.querySelector("#data-table tbody");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const pname = document.querySelector("#pname").value;
+        const dname = document.querySelector("#dname").value;
+        const date = document.querySelector("#date").value;
+        const feedback = document.querySelector("#feedback").value;
+
+        const row = document.createElement("tr");
+        const pnameCell = document.createElement("td");
+        const dnameCell = document.createElement("td");
+        const dateCell = document.createElement("td");
+        const feedbackCell = document.createElement("td");
+
+        pnameCell.textContent = pname;
+        dnameCell.textContent = dname;
+        dateCell.textContent = date;
+        feedbackCell.textContent = feedback;
+
+        row.appendChild(pnameCell);
+        row.appendChild(dnameCell);
+        row.appendChild(dateCell);
+        row.appendChild(feedbackCell);
+
+        tbody.appendChild(row);
+
+        form.reset();
+      });
+    </script>
+  </body>
+</html>
